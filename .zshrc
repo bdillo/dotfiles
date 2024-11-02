@@ -11,9 +11,15 @@ export PATH="$PATH:$(brew --prefix)/opt/llvm/bin"
 alias ls="ls --color=auto"
 alias hg="history -1000 | grep"
 alias c="cargo"
+alias z="zellij"
 
 # shell history
 setopt SHARE_HISTORY
 
 # personal tools
 export PATH="$PATH:/Users/bendillon/bin"
+
+# see https://github.com/messense/homebrew-macos-cross-toolchains
+set-cargo-linux-cross-compile () {
+	export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-linux-gnu-gcc
+}
