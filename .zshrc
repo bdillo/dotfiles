@@ -12,6 +12,7 @@ alias ls="ls --color=auto"
 alias hg="history -1000 | grep"
 alias c="cargo"
 alias z="zellij"
+alias fullpath="find $(pwd) -maxdepth 1"
 
 # shell history
 setopt SHARE_HISTORY
