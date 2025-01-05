@@ -5,7 +5,7 @@ bindkey '^R' history-incremental-search-backward
 
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$PATH:$(brew --prefix)/opt/llvm/bin"
+export PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
 
 # general aliases
 alias ls="ls --color=auto"
