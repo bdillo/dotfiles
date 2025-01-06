@@ -1,1 +1,2 @@
-keybind = global:alt+space=toggle_visibility
+# https://github.com/ghostty-org/ghostty/issues/4329
+# keybind = global:alt+space=toggle_visibility

@@ -14,3 +14,8 @@ command = "ruff-lsp"
 
 [language-server.ruff.config.settings]
 args = ["--ignore", "E501"]
+
+[[language]]
+name = "c"
+formatter = { command = "clang-format"}
+auto-format = true
