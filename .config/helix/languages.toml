@@ -17,5 +17,10 @@ args = ["--ignore", "E501"]
 
 [[language]]
 name = "c"
-formatter = { command = "clang-format"}
+formatter = { command = "clang-format" }
 auto-format = true
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "gofmt" }
