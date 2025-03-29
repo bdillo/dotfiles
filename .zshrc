@@ -24,3 +24,4 @@ export PATH="$PATH:/Users/bendillon/bin"
 set-cargo-linux-cross-compile () {
 	export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-linux-gnu-gcc
 }
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

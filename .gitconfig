@@ -1,0 +1,16 @@
+[core]
+	excludesfile = /Users/bendillon/.gitignore
+[user]
+	name = bdillo
+	email = <snip>
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF2m8je5nNCXHBABPShbFJj9JxEAMbmMT8vTOltcpHLc
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[pull]
+	rebase = true
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"

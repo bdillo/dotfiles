@@ -7,6 +7,8 @@ files=(
   ".zshrc"
   ".config/helix/config.toml"
   ".config/helix/languages.toml"
+  ".gitconfig"
+  ".ssh/config"
 )
 
 dirs=(
