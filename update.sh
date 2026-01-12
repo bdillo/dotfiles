@@ -9,10 +9,12 @@ files=(
   ".config/helix/languages.toml"
   ".gitconfig"
   ".ssh/config"
+  ".claude/CLAUDE.md"
 )
 
 dirs=(
   ".config/ghostty"
+  ".claude/skills"
 )
 
 for f in "${files[@]}"; do
