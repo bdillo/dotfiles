@@ -14,65 +14,67 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  networking.hostName = "nixos-dev";
+
+  networking.networkmanager.enable = true;
+
+  time.timeZone = "US/Pacific";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    keyMap = "us";
+  };
 
   users.users.user = {
     isNormalUser = true;
-    home = "/home/user";
     shell = pkgs.bash;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     packages = with pkgs; [
       tree
-      git
-      curl
-      gcc
-      gnumake
-      cargo
-      python3
-      ripgrep
       helix
     ];
 
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqYGrM4WgNNkQowAbQLrEsMOLlzufA0MU5LtnwvMNDR"
-    ];
+    # TODO: add ssh key
   };
+
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    curl
+    git
+    unzip
+    file
+    htop
+  ];
 
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
   };
 
+  virtualisation.docker.enable = true;
+
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "no";
-    settings.PasswordAuthentication = false;
+    # TODO: enable
+    # settings.PasswordAuthentication = false;
   };
 
-  networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  networking.hostName = "nixos-vm";
-  
-  time.timeZone = "UTC";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-  ];  
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -91,7 +93,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
 
