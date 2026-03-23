@@ -74,7 +74,7 @@
 
   programs.claude-code = {
     enable = true;
-    memory = builtins.readFile ./claude/CLAUDE.md;
+    memory.source = ./claude/CLAUDE.md;
   };
 
   programs.zsh = {
