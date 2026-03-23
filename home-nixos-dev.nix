@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/user";
 
   programs.zsh.initContent = ''
-    export PS1='nixos-dev %~ %# > '
+    export PS1='%F{green}nixos-dev%f %~ %# > '
   '';
 
   programs.zsh.shellAliases = {
