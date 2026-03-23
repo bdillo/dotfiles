@@ -5,7 +5,6 @@
     ripgrep
     fd
     jq
-    lazygit
   ];
 
   programs.helix = {
@@ -54,8 +53,6 @@
 
   programs.git = {
     enable = true;
-    userName = "bdillo";
-    userEmail = "ben.g.dillon@pm.me";
     signing = {
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF2m8je5nNCXHBABPShbFJj9JxEAMbmMT8vTOltcpHLc";
       signByDefault = true;
@@ -66,7 +63,9 @@
       ".idea"
       ".DS_Store"
     ];
-    extraConfig = {
+    settings = {
+      user.name = "bdillo";
+      user.email = "ben.g.dillon@pm.me";
       init.defaultBranch = "main";
       pull.rebase = true;
     };
@@ -79,9 +78,8 @@
 
   programs.zsh = {
     enable = true;
-    initExtra = ''
+    initContent = ''
       set -o vi
-      export PS1='%~ %# > '
       bindkey '^R' history-incremental-search-backward
     '';
     history.share = true;

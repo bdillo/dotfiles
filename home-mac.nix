@@ -5,7 +5,7 @@
   home.username = "bendillon";
   home.homeDirectory = "/Users/bendillon";
 
-  programs.git.extraConfig.gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+  programs.git.settings.gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
 
   home.file.".ssh/config".text = ''
     Host *
@@ -20,6 +20,10 @@
       font-family = "JetBrains Mono NL";
     };
   };
+
+  programs.zsh.initContent = ''
+    export PS1='%~ %# > '
+  '';
 
   home.stateVersion = "25.11";
 }

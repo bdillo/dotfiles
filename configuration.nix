@@ -5,7 +5,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -33,19 +32,12 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "docker" ];
-    packages = with pkgs; [
-      tree
-      helix
-    ];
-
     # TODO: add ssh key
   };
 
   environment.systemPackages = with pkgs; [
-    vim
     wget
     curl
-    git
     unzip
     file
     htop

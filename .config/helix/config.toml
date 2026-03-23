@@ -1,4 +1,0 @@
-theme = "darcula-solid"
-
-[editor.file-picker]
-hidden = false
