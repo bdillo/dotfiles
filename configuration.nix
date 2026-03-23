@@ -31,7 +31,7 @@
 
   users.users.user = {
     isNormalUser = true;
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" "docker" ];
     packages = with pkgs; [
       tree
@@ -55,6 +55,8 @@
     enable = true;
     wheelNeedsPassword = false;
   };
+
+  programs.zsh.enable = true;
 
   virtualisation.docker.enable = true;
 
