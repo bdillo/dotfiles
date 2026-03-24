@@ -26,5 +26,10 @@
     export PS1='%~ %# > '
   '';
 
+  programs.zsh.shellAliases = {
+    hm-switch = "home-manager switch --flake github:bdillo/dotfiles#mac -b backup";
+    hm-switch-local = "home-manager switch --flake ~/workspace/dotfiles#mac -b backup";
+  };
+
   home.stateVersion = "25.11";
 }
