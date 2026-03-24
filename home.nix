@@ -82,7 +82,6 @@
       set -o vi
       bindkey '^R' history-incremental-search-backward
     '';
-    history.share = true;
     shellAliases = {
       ll = "ls -la";
     };
