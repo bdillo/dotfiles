@@ -5,6 +5,10 @@
   home.username = "bendillon";
   home.homeDirectory = "/Users/bendillon";
 
+  home.packages = with pkgs; [
+    home-manager
+  ];
+
   programs.git.settings.gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
 
   home.file.".ssh/config".text = ''
@@ -27,8 +31,8 @@
   '';
 
   programs.zsh.shellAliases = {
-    hm-switch = "home-manager switch --flake github:bdillo/dotfiles#mac -b backup";
-    hm-switch-local = "home-manager switch --flake ~/workspace/dotfiles#mac -b backup";
+    hm-switch = "home-manager switch --flake github:bdillo/dotfiles#mac";
+    hm-switch-local = "home-manager switch --flake ~/workspace/dotfiles#mac";
   };
 
   home.stateVersion = "25.11";
