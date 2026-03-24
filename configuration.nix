@@ -32,7 +32,9 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "docker" ];
-    # TODO: add ssh key
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIND8IAD/DxzuRey5mMivI/e53j34vGgRuOD7eIjWU7XB"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
