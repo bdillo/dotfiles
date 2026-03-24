@@ -15,6 +15,7 @@
 
   programs.ghostty = {
     enable = true;
+    package = null;
     settings = {
       keybind = "global:alt+space=toggle_visibility";
       font-family = "JetBrains Mono NL";
