@@ -31,7 +31,7 @@
   '';
 
   programs.zsh.shellAliases = {
-    hm-switch = "home-manager switch --flake github:bdillo/dotfiles#mac";
+    hm-switch = "home-manager switch --flake github:bdillo/dotfiles#mac --refresh";
     hm-switch-local = "home-manager switch --flake ~/workspace/dotfiles#mac";
   };
 
